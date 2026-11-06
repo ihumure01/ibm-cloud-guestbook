@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guestbook - v1</title>
+</head>
+<body>
+    <h1>Guestbook - v1</h1>
+
+    <form id="guestbook-form">
+        <input type="text" id="message" placeholder="Enter your message" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <ul id="messages"></ul>
+
+    <script>
+        const form = document.getElementById('guestbook-form');
+        const messageInput = document.getElementById('message');
+        const messages = document.getElementById('messages');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const message = messageInput.value.trim();
+            if (!message) return;
+
+            const item = document.createElement('li');
+            item.textContent = message;
+            messages.appendChild(item);
+
+            messageInput.value = '';
+        });
+    </script>
+</body>
+</html>

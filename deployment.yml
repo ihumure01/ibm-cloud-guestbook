@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
         - name: guestbook
-          image: nginx:alpine
+          image: guestbook:v1
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
